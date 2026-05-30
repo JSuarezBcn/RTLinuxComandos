@@ -1,27 +1,29 @@
 # Beckhoff RT-Linux – guía rápida comandos más habituales
-Más información sobre comandos en (Beckhoff RT-Linux)[https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181] en Beckhoff Infosys
+Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys
 
 ## Gestión de software de Beckhoff
-# Conectar desde Windows desde consola
+  # Conectar desde Windows desde consola
+  ```
+  ssh Administrator@direccionIP
+  ```
+  # Buscar paquete (antes es necesario añadir el usuario de acceso al repositorio de Beckhoff )
+  ```
+  apt search nombre_del_paquete
+  ```
+  #	Instalar/actualizar paquete
 ```
-ssh Administrator@direccionIP
-```
-# Buscar paquete (antes es necesario añadir el usuario de acceso al repositorio de Beckhoff )
-```
-apt search nombre_del_paquete
-```
-•	Instalar/actualizar paquete
 sudo apt install nombre_del_paquete
+```
 Ej: instalar runtime
 sudo apt install tc31-xar-um
 Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
 
-•	Borrar paquete instalado. Con purge se elimina además la configuración
+  # Borrar paquete instalado. Con purge se elimina además la configuración
 sudo apt remove nombre_del_paquete
 sudo apt purge nombre_del_paquete
-•	Mostrar listado de paquetes instalados y sus versiones
+  # Mostrar listado de paquetes instalados y sus versiones
 apt list -i
-•	Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
+  # Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
 1.	Editar el archivo de configuración:
 sudo nano /etc/apt/auth.conf.d/bhf.conf
 2.	Añadir email de usuario y contraseña:
