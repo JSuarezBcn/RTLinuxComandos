@@ -2,28 +2,32 @@
 Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys
 
 ## Gestión de software de Beckhoff
-  # Conectar desde Windows desde consola
+* Conectar desde Windows desde consola
   ```
   ssh Administrator@direccionIP
   ```
-  # Buscar paquete (antes es necesario añadir el usuario de acceso al repositorio de Beckhoff )
+* Buscar paquete (antes es necesario añadir el usuario de acceso al repositorio de Beckhoff )
   ```
   apt search nombre_del_paquete
   ```
-  #	Instalar/actualizar paquete
+*	Instalar/actualizar paquete
 ```
 sudo apt install nombre_del_paquete
 ```
-Ej: instalar runtime
+Ej: instalar runtime de TwinCAT 4026
+```
 sudo apt install tc31-xar-um
+```
 Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
 
-  # Borrar paquete instalado. Con purge se elimina además la configuración
+* Borrar paquete instalado. Con _purge_ se elimina además la configuración
+```
 sudo apt remove nombre_del_paquete
 sudo apt purge nombre_del_paquete
-  # Mostrar listado de paquetes instalados y sus versiones
+```
+* Mostrar listado de paquetes instalados y sus versiones
 apt list -i
-  # Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
+* Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
 1.	Editar el archivo de configuración:
 sudo nano /etc/apt/auth.conf.d/bhf.conf
 2.	Añadir email de usuario y contraseña:
@@ -36,7 +40,7 @@ machine deb-mirror.beckhoff.com
 login example@mail.com
 password xyz123
 ```
-•	Instalación de una versión específica de un paquete
+*	Instalación de una versión específica de un paquete
 1.	Creación de una carpeta de descargas
 mkdir /Downloads
 cd /Downloads
@@ -46,15 +50,19 @@ curl -sLo https://deb.beckhoff.com/debian/pool/main/t/tf2000-hmi-server-14.4.124
 dpkg -i tf2000-hmi-server-14.4.124.0_arm64.db
 
 ## Comandos de RT-linux habituales
-Gestión de cpu
-•	Reiniciar
-sudo reboot
-•	Apagar
-sudo shutdown -h now
-Gestión de red
-•	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
+* Gestión de cpu
+  *	Reiniciar
+  ```
+  sudo reboot
+  ```
+  *	Apagar
+  ```
+  sudo shutdown -h now
+  ```
+* Gestión de red
+  *	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
 ip a
-•	Descubrir dirección IP sin necesidad de conectar pantalla
+  *	Descubrir dirección IP sin necesidad de conectar pantalla
 1.	Desde Windows ejecutar ipconfig. Localizar el identificador del adaptador
 
 Ethernet adapter Ethernet 5:
