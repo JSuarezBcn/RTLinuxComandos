@@ -2,67 +2,67 @@
 Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys
 
 ## Gestión de software de Beckhoff
-* Conectar remotamente desde otro pc con Windows desde consola PowerShell
-  ```
-  ssh Administrator@direccionIP
-  ```
-* Buscar paquete de TwinCAT
-  > [!IMPORTANT] 
-  > Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
-  ```
-  apt search nombre_del_paquete
-  ```
-*	Instalar/actualizar un paquete
-  ```
-  sudo apt install nombre_del_paquete
-  ```
-  Ej: **instalar runtime de TwinCAT 4026**
-  ```
-  sudo apt install tc31-xar-um
-  ```
-Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
+  * Conectar remotamente desde otro pc con Windows desde consola PowerShell
+    ```
+    ssh Administrator@direccionIP
+    ```
+  * Buscar paquete de TwinCAT
+    > [!IMPORTANT] 
+    > Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
+    ```
+    apt search nombre_del_paquete
+    ```
+  *	Instalar/actualizar un paquete
+    ```
+    sudo apt install nombre_del_paquete
+    ```
+    Ej: **instalar runtime de TwinCAT 4026**
+    ```
+    sudo apt install tc31-xar-um
+    ```
+  Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
 
-* Borrar paquete instalado. Con _purge_ se elimina además la configuración
-  ```
-  sudo apt remove nombre_del_paquete
-  ```
-  ```
-  sudo apt purge nombre_del_paquete
-  ```
-* Mostrar listado de paquetes instalados y sus versiones
-  ```
-  apt list -i
-  ```
+  * Borrar paquete instalado. Con _purge_ se elimina además la configuración
+    ```
+    sudo apt remove nombre_del_paquete
+    ```
+    ```
+    sudo apt purge nombre_del_paquete
+    ```
+  * Mostrar listado de paquetes instalados y sus versiones
+    ```
+    apt list -i
+    ```
 
-* Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
-  1.	Editar el archivo de configuración:
-    ```
-    sudo nano /etc/apt/auth.conf.d/bhf.conf
-    ```
-  2.	Añadir email de usuario y contraseña:
-    ```
-    machine deb.beckhoff.com
-    login example@mail.com
-    password xyz123
+  * Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
+    1.	Editar el archivo de configuración:
+      ```
+      sudo nano /etc/apt/auth.conf.d/bhf.conf
+      ```
+    2.	Añadir email de usuario y contraseña:
+      ```
+      machine deb.beckhoff.com
+      login example@mail.com
+      password xyz123
 
-    machine deb-mirror.beckhoff.com
-    login example@mail.com
-    password xyz123
-    ```
-*	Instalación de una versión específica de un paquete
-  1.	Creación de una carpeta de descargas
+      machine deb-mirror.beckhoff.com
+      login example@mail.com
+      password xyz123
       ```
-      mkdir /Downloads
-      cd /Downloads
-      ```
-  2.	Descarga del paquete directamente de la web del [repositorio](https://deb.beckhoff.com/debian/pool/main/t/) Debian de Beckhoff. Ej: descarga del paquete TwinCAT TF2000 HMI v14.4.124:
-      ```
-      curl -sLo https://deb.beckhoff.com/debian/pool/main/t/tf2000-hmi-server-14.4.124.0_arm64.db
-      ```
-  3.	Instalación del paquete
-      ```
-      dpkg -i tf2000-hmi-server-14.4.124.0_arm64.db
-      ```
+  *	Instalación de una versión específica de un paquete
+    1.	Creación de una carpeta de descargas
+        ```
+        mkdir /Downloads
+        cd /Downloads
+        ```
+    2.	Descarga del paquete directamente de la web del [repositorio](https://deb.beckhoff.com/debian/pool/main/t/) Debian de Beckhoff. Ej: descarga del paquete TwinCAT TF2000 HMI v14.4.124:
+        ```
+        curl -sLo https://deb.beckhoff.com/debian/pool/main/t/tf2000-hmi-server-14.4.124.0_arm64.db
+        ```
+    3.	Instalación del paquete
+        ```
+        dpkg -i tf2000-hmi-server-14.4.124.0_arm64.db
+        ```
 
 ## Comandos de RT-linux habituales
 ### Gestión de cpu
@@ -77,7 +77,7 @@ Algunos paquetes requieren configurar un servicio para que arranque automáticam
 ### Gestión de red
   *	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
     ```
-    ip a
+    ip --brief a
     ```
   *	Descubrir dirección IP sin necesidad de conectar pantalla
     1.	Desde Windows ejecutar _ipconfig_. Localizar el identificador del adaptador
