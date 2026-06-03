@@ -7,11 +7,12 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
     ssh Administrator@direccionIP
     ```
   * Buscar paquete de TwinCAT
-> [!IMPORTANT] 
-> Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
     ```
     apt search nombre_del_paquete
     ```
+> [!IMPORTANT] 
+> Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
+
   *	Instalar/actualizar un paquete
     ```
     sudo apt install nombre_del_paquete
@@ -32,7 +33,7 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
     ```
     apt list -i
     ```
-  * Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
+  * **Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff**
     1.	Editar el archivo de configuración:
         ```
         sudo nano /etc/apt/auth.conf.d/bhf.conf
@@ -82,7 +83,7 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         ```
         Ethernet adapter Ethernet 5:
           Connection-specific DNS Suffix .. : example.com
-          Link-local IPv6 Address . . . . . : fe80::5197:ef72:a352:b7f7%17
+          Link-local IPv6 Address . . . . . : fe80::5197:ef72:a352:b7f7%17 
         ```
     2.	Del adaptador de red encontrado antes en la configuración IPv6 (ej: 17), hacer ping por máscara de hardware ff02 usando ese identificador del adaptador: (nota: si no aparecen resultados puede estar bloqueado por firewall)
         ```
