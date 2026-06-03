@@ -64,7 +64,11 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         ```
 
 ## Comandos de RT-linux habituales
-### Gestión de cpu
+### Gestión de cpu y sistema operativo
+  *	Ver procesos y uso de cpu y memoria
+    ```
+    htop
+    ```
   *	Reiniciar
     ```
     sudo reboot
