@@ -164,6 +164,11 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         ```
         sudo mount /dev/sdb1 /media/usb1/
         ```
+  *	Ver espacio total y disponible de almacenamiento en disco
+      ```
+      df
+      ```
+    Las unidades físicas se nombran sda, sdb, sdc... Para ver el espacio disponible en una unidad externa antes se tiene que montar la unidad
   *	Copiar archivos
       ```
       cp -r /rutaDirectorio1/ /rutaDirectorio2/
