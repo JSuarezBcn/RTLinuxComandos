@@ -7,8 +7,8 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
     ssh Administrator@direccionIP
     ```
   * Buscar paquete de TwinCAT
-    > [!IMPORTANT] 
-    > Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
+> [!IMPORTANT] 
+> Antes es necesario añadir el usuario de la web myBeckhoff al repositorio de Beckhoff, se explica más adelante.
     ```
     apt search nombre_del_paquete
     ```
@@ -20,8 +20,7 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
     ```
     sudo apt install tc31-xar-um
     ```
-  Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
-
+    Algunos paquetes requieren configurar un servicio para que arranque automáticamente con el plc. P.ej: tf2000 hmi, tf6250 modbus, etc
   * Borrar paquete instalado. Con _purge_ se elimina además la configuración
     ```
     sudo apt remove nombre_del_paquete
@@ -33,29 +32,28 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
     ```
     apt list -i
     ```
-
   * Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff
     1.	Editar el archivo de configuración:
-      ```
-      sudo nano /etc/apt/auth.conf.d/bhf.conf
-      ```
+        ```
+        sudo nano /etc/apt/auth.conf.d/bhf.conf
+        ```
     2.	Añadir email de usuario y contraseña:
-      ```
-      machine deb.beckhoff.com
-      login example@mail.com
-      password xyz123
+        ```
+        machine deb.beckhoff.com
+        login example@mail.com
+        password xyz123
 
-      machine deb-mirror.beckhoff.com
-      login example@mail.com
-      password xyz123
-      ```
+        machine deb-mirror.beckhoff.com
+        login example@mail.com
+        password xyz123
+        ```
   *	Instalación de una versión específica de un paquete
     1.	Creación de una carpeta de descargas
         ```
         mkdir /Downloads
         cd /Downloads
         ```
-    2.	Descarga del paquete directamente de la web del [repositorio](https://deb.beckhoff.com/debian/pool/main/t/) Debian de Beckhoff. Ej: descarga del paquete TwinCAT TF2000 HMI v14.4.124:
+    2.	Descarga del paquete directamente de la web del [repositorio](https://deb.beckhoff.com/debian/pool/main/t/) Debian de Beckhoff.Ej:descarga del paquete TwinCAT TF2000 HMI v14.4.124:
         ```
         curl -sLo https://deb.beckhoff.com/debian/pool/main/t/tf2000-hmi-server-14.4.124.0_arm64.db
         ```
@@ -95,13 +93,15 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         Get-NetNeighbor -LinkLayerAddress 00-01-05* -AddressFamily IPv6
         ```
         Resultado: muestra las direcciones IPv6 que coincidan con la direccion MAC de Beckhoff
+
         ![Captura de consola de Windows mostrando resultados por MAC](Beckhoff_RtLinux_explorar_por_MAC.png)
+        
         Luego para conectar por ssh desde la consola sería:
         ```
         ssh Administrator@fe80:201:5ff:xxx:xxx
         ```
   *	Asignar dirección IP
-    1.	Crear un archivo de configuración según el nombre del adaptador (ej: end0)
+    1.	Crear un archivo de configuración según el nombre del adaptador (ej: _end0_)
         ```
         sudo nano /etc/systemd/network/10-end0-static.network
         ```
@@ -140,6 +140,10 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         ```
         sudo nft list ruleset
         ```
+  * Listar sockets TCP/UDP abiertos o en escucha y qué IP está conectada
+    ```
+    sudo ss -tuln
+    ```  
 
 ### Gestión de archivos
   *	Montar unidad usb
