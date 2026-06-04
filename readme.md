@@ -1,5 +1,5 @@
-# Beckhoff RT-Linux – guía rápida comandos más habituales
-Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys
+# Beckhoff RT-Linux® – guía rápida comandos más habituales
+Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys.
 
 ## Gestión de software de Beckhoff
   * Conectar remotamente desde otro pc con Windows desde consola PowerShell
@@ -62,6 +62,17 @@ Más información sobre comandos en [Beckhoff RT-Linux](https://infosys.beckhoff
         ```
         dpkg -i tf2000-hmi-server-14.4.124.0_arm64.db
         ```
+  * Instalar driver RT-ethernet en una tarjeta de red
+    1.	Al ejecutar el comando se nos pedirá detener el servicio del runtime de TwinCAT. Hay que seleccionar la interfaz de red en el listado, y una vez instalado volverá a solicitar reiniciar el servicio de TwinCAT.
+        ```
+        sudo TcRteInstall
+        ```  
+        Opcional: Con el siguiente comando se puede mostrar el estado de las interfaces de red y si tienen el driver instalado
+        ```
+        sudo TcRteInstall -l
+        ```
+        ![Mostrar interfaces de red y habilitación del driver RT ethernet](Beckhoff_RtLinux_driverRT_network_adapters.png)
+
 
 ## Comandos de RT-linux habituales
 ### Gestión de cpu y sistema operativo
