@@ -88,6 +88,12 @@ Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https
     ```
     sudo shutdown -h now
     ```
+  *	Seleccionar layout de teclado para cambiar de idioma
+    ```
+    sudo dpkg-reconfigure keyboard-configuration
+    ```
+    En la mayoria de los casos el teclado Generic 105 funciona bien (70). Luego seleccionar el idioma y el resto de opciones por defecto. Requiere reiniciar para aplicar los cambios
+    
 ### Gestión de red
   *	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
     ```
@@ -158,7 +164,7 @@ Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https
         ```
   * Listar sockets TCP/UDP abiertos o en escucha y qué IP está conectada
     ```
-    sudo ss -tuln
+    sudo ss -tuan
     ```  
 
 ### Gestión de archivos
