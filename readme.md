@@ -67,11 +67,15 @@ Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https
         ```
         sudo TcRteInstall
         ```  
-        Opcional: Con el siguiente comando se puede mostrar el estado de las interfaces de red y si tienen el driver instalado
+        Opcional: Con el siguiente comando se puede mostrar el estado de las interfaces de red, su dirección de hardware y si tienen el driver instalado
         ```
         sudo TcRteInstall -l
         ```
         ![Mostrar interfaces de red y habilitación del driver RT ethernet](Beckhoff_RtLinux_driverRT_network_adapters.png)
+        Si se desea instalar el driver RT-ethernet en un adapatador de red específico, se puede indicar con el parámetro _--bind_ e indicando la dirección de hardware del adaptador de red
+        ```
+        sudo TcRteInstall --bind xxxx:xx:xx.x
+        ```        
 
 
 ## Comandos de RT-linux habituales
@@ -99,7 +103,7 @@ Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https
     ```
     ip --brief a
     ```
-  *	Descubrir dirección IP sin necesidad de conectar pantalla
+  *	Desde Windows, descubrir dirección IP del IPC sin necesidad de conectarle pantalla
     1.	Desde Windows ejecutar _ipconfig_. Localizar el identificador del adaptador
         ```
         Ethernet adapter Ethernet 5:
