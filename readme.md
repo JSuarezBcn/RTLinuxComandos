@@ -1,5 +1,5 @@
 # Beckhoff RT-Linux® – guía rápida comandos más habituales
-Más información sobre comandos la guía oficial en [Beckhoff RT-Linux®](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys.
+Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](https://infosys.beckhoff.com/content/1033/beckhoff_rt_linux/index.html?id=1171886970310160181) en Beckhoff Infosys. En la documentación online se amplía la información y se muestra como instalar, crear copias de seguridad y configuraciones avanzadas.
 
 ## Gestión de software de Beckhoff
   * Conectar remotamente desde otro pc con Windows desde consola PowerShell
