@@ -72,9 +72,11 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
         sudo TcRteInstall -l
         ```
         ![Mostrar interfaces de red y habilitación del driver RT ethernet](Beckhoff_RtLinux_driverRT_network_adapters.png)
-        Si se desea instalar el driver RT-ethernet en un adapatador de red específico, se puede indicar con el parámetro _--bind_ e indicando la dirección de hardware del adaptador de red
+        Si se desea instalar el driver RT-ethernet en un adapatador de red específico, se puede indicar con el parámetro _--bind_ e indicando la dirección de hardware del adaptador de red. Antes de activar hay que detener el servicio de TwinCAT y después de reinciarlo.
         ```
+        sudo systemctl stop TcSystemServiceUm
         sudo TcRteInstall --bind xxxx:xx:xx.x
+        sudo systemctl start TcSystemServiceUm
         ```        
 
 
