@@ -51,8 +51,8 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
   *	Instalación de una versión específica de un paquete
     1.	Creación de una carpeta de descargas
         ```
-        mkdir /Downloads
-        cd /Downloads
+        sudo mkdir Downloads
+        cd Downloads
         ```
     2.	Descarga del paquete directamente de la web del [repositorio](https://deb.beckhoff.com/debian/pool/main/t/) Debian de Beckhoff.Ej:descarga del paquete TwinCAT TF2000 HMI v14.4.124:
         ```
@@ -79,8 +79,7 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
         sudo systemctl start TcSystemServiceUm
         ```        
 
-
-## Comandos de RT-linux habituales
+## Comandos de Linux Debian habituales
 ### Gestión de cpu y sistema operativo
   *	Ver procesos y uso de cpu y memoria
     ```
@@ -99,13 +98,17 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
     sudo dpkg-reconfigure keyboard-configuration
     ```
     En la mayoria de los casos el teclado Generic 105 funciona bien (70). Luego seleccionar el idioma y el resto de opciones por defecto. Requiere reiniciar para aplicar los cambios
-    
+  *	Fijar zona horaria. Eso arranca un asistente que pide la zona geográfica
+    ```
+    sudo dpkg-reconfigure tzdata
+    ```
+
 ### Gestión de red
   *	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
     ```
     ip --brief a
     ```
-  *	Desde Windows, descubrir dirección IP del IPC sin necesidad de conectarle pantalla
+  *	**Desde Windows**, descubrir dirección IP del IPC sin necesidad de conectarle pantalla
     1.	Desde Windows ejecutar _ipconfig_. Localizar el identificador del adaptador
         ```
         Ethernet adapter Ethernet 5:
@@ -128,6 +131,9 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
         ```
         ssh Administrator@fe80:201:5ff:xxx:xxx
         ```
+> [!NOTE] 
+> Estos comandos son similares al comando 'arp -a'. Muestran las tablas de direcciones que guarda en una caché el sistema operativo. Solo muestran la dirección de red si se han negociado datos en la red con ese dispositivo anteriormente. Si es una conexion nueva puede ser que no devuelva resultados.
+
   *	Asignar dirección IP
     1.	Crear un archivo de configuración según el nombre del adaptador (ej: _end0_)
         ```
