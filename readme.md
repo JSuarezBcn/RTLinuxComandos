@@ -33,7 +33,7 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
     ```
     apt list -i
     ```
-  * **Añadir credenciales de usuario de myBeckhoff (web) al repositorio de Beckhoff**
+  * **Añadir credenciales de usuario de myBeckhoff (web de [Beckhoff](https://www.beckhoff.com/es-es/) ) al repositorio de Beckhoff**
     1.	Editar el archivo de configuración:
         ```
         sudo nano /etc/apt/auth.conf.d/bhf.conf
@@ -89,7 +89,7 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
     ```
     sudo reboot
     ```
-  *	Apagar
+  *	Apagar inmediatamente
     ```
     sudo shutdown -h now
     ```
@@ -106,7 +106,7 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
 ### Gestión de red
   *	Consultar dirección IP por adaptador de red. Mostrará el nombre del adaptador: 
     ```
-    ip --brief a
+    ip -br a
     ```
   *	**Desde Windows**, descubrir dirección IP del IPC sin necesidad de conectarle pantalla
     1.	Desde Windows ejecutar _ipconfig_. Localizar el identificador del adaptador
@@ -210,7 +210,7 @@ Más información sobre comandos en la guía oficial en [Beckhoff RT-Linux®](ht
       ```
       mkdir nombreDirectorio
       ```
-  *	Borrar directorio
+  *	Borrar directorio o archivo
       ```
       rm nombreDirectorio
       ```
